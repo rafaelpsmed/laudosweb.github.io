@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laudos Web</title>
+    
+</head>
+<body>
+
+    <!-- DUM e IG pelo primeiro USG -->
+    <h2>IG pelo primeiro USG</h2>
+
+    <label for="data_prim_usg">Data primeiro USG:</label>
+    <input name="data_prim_usg" id="data_prim_usg" type="date">
+    <label for="sem_prim_usg">Semanas:</label>
+    <input name="sem_prim_usg" id="sem_prim_usg" type="text" size="5">
+    <label for="dias_prim_usg">Dias:</label>
+    <input name="dias_prim_usg" id="dias_prim_usg" type="text" size="5">
+    <br>
+    <br>
+    <input type="button" value="Limpar" onclick="limpar_dum_ig()">
+    <br>
+    <br>
+    <input type="checkbox" name="incluir_dum_laudo" id="incluir_dum_laudo" value="">Incluir IG pelo 1° US no laudo<br>
+
+
+    <hr>
+
+    <!-- Estática Fetal -->
+
+    <h2>Estática Fetal</h2>
+    
+    <label for="situacao">Situação:</label>
+    <select name="situacao" id="situacao">
+        <option value="">Longitudinal</option>
+        <option value="">Transverso</option>        
+    </select>
+    <label for="apresentacao">Apresentação:</label>
+    <select name="" id="apresentacao">
+        <option value="">Cefálica</option>
+        <option value="">Pélvica</option>    
+        <option value="">Córmica</option>      
+    </select>
+    <label for="dorso">Dorso/Polo Cefálico:</label>
+    <select name="" id="dorso">
+        <option value="">Direita</option>
+        <option value="">Esquerda</option>               
+    </select>
+
+    <br>
+    <br>
+    <hr>
+
+    <!-- Biometria -->
+    <h2>Biometria</h2>
+
+    <label for="bcf">BCF:</label>
+    <input name="bcf" id="bcf" type="number" step="1" size="3">
+    <br>
+    <br>
+    <label for="DBP">DBP:</label>
+    <input name="DBP" id="DBP" type="number" step="0.01" size="3">
+    <label for="CC">CC:</label>
+    <input name="CC" id="CC" type="number" step="0.01" size="3">
+    <label for="CA">CA:</label>
+    <input name="CA" id="CA" type="number" step="0.01" size="3">
+    <label for="CF">CF:</label>
+    <input name="CF" id="CF" type="number" step="0.01" size="3" onblur="calc_peso(),calc_ig()">
+    <label for="peso">Peso:</label>
+    <input name="peso" id="peso" type="number" step="0.01" size="3">
+    <label for="peso"> g</label>
+    <br>
+    <br>
+    <label for="semanas">Idade Gestacional:</label>
+    <input name="semanas" id="ig_semanas" type="text" size="5">
+    <label for="dias"> semanas e </label>
+    <input name="dias" id="ig_dias" type="text" size="5">
+    <label for="dias"> dias.</label>
+    <br>
+    <hr>
+
+    <!-- Placenta e LA-->
+    <h2>Placenta e Líquido Amniótico</h2>
+    <label for="placenta">Localização:</label>
+    <select name="placenta" id="placenta">
+        <option value="">Anterior</option>
+        <option value="">Posterior</option>
+        <option value="">Fúndica</option>
+        <option value="">Predominantemente Anterior</option>
+        <option value="">Predominantemente Posterior</option>
+        <option value="">Lateral Direita</option>
+        <option value="">Lateral Esquerda</option>
+        <option value="">Prévia</option>                
+    </select>
+    <label for="grau_placenta">Grau</label>
+    <select name="grau_placenta" id="grau_placenta">
+            <option value="">0</option>
+            <option value="">I</option>
+            <option value="">II</option>
+            <option value="">III</option>
+            <option value="">0/I</option>
+            <option value="">I/II</option>
+            <option value="">II/III</option>              
+    </select>
+    <label for="espessura_placenta">Espessura</label>    
+    <input name="espessura_placenta" id="espessura_placenta" type="text" size="5">
+    <label for="espessura_placenta"> mm</label>
+    <br>
+    <br>
+    <label for="obs_placenta">Alteração:</label>
+    <input name="obs_placenta" type="text" id="obs_placenta" placeholder="Espaço para descrever alguma alteração na placenta." size="50">
+    <br>
+    <br>
+    <label for="maior_bolsão">Maior bolsão:</label>
+    <input name="maior_bolsão" id="maior_bolsão" type="text" size="5">
+    <label for="ila">ILA:</label>
+    <input name="ila" id="ila" type="text" size="5">
+    <br>
+    <br>
+    <hr>
+
+    <input type="button" value="Gerar Laudo" onclick="laudo()">
+    <input type="button" value="Apagar valores">
+
+    <hr>
+
+    <!-- Doppler -->
+
+    <h2>Doppler</h2>
+    <label for="ar_acm">IP Artéria Cerebral Média:</label>
+    <input name="ar_acm" type="text" size="5">
+    <label for="ar_acm_ir">IR Artéria Cerebral Média:</label>
+    <input name="ar_acm_ir" type="text" size="5">
+    <br>
+    <br>
+    <label for="ar_au">IP Artéria Umbilical:</label>
+    <input name="ar_au" type="text" size="5">
+    <label for="ar_au_ir">IR Artéria Umbilical:</label>
+    <input name="ar_au_ir" type="text" size="5">
+    <input type="checkbox" id="diastole_zero" value="">Diástole Zero
+    <input type="checkbox" id="diastole_zero" value="">Diástole Reversa
+    <input type="checkbox" id="diastole_zero" value="">Diástole Baixa
+    <br>
+    <br>
+    <label for="ar_utd">IP Artéria Uterina Direita:</label>
+    <input name="ar_utd" type="text" size="5">
+    <br>
+    <br>
+    <label for="ar_ute">IP Artéria Uterina Esquerda:</label>
+    <input name="ar_ute" type="text" size="5">
+    <br>
+    <br>
+    <input type="button" value="Gerar Laudo" onclick="laudo_doppler()">
+    <input type="button" value="Apagar valores">
+    <hr>
+
+    <!-- Área do laudo -->
+    <h2>Laudo</h2>
+
+    <textarea name="laudo" id="laudo" cols="150" rows="50"></textarea>
+    <br>
+    <input type="button" value="Apagar" onclick="limpar_laudo()">
+    <input type="button" value="Copiar" onclick="copiar_laudo()">
+
+
+
+
+    <script type="text/javascript" src="obs.js"></script>
+</body>
+</html>

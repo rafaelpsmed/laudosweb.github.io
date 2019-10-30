@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transvaginal</title>
+</head>
+<body>
+
+    <h2>Indicação clínica</h2>
+    
+    <label for="indicacao">Indicação clínica:</label>
+    <input name="indicacao" id="indicacao" type="text" size="25">
+    <br>
+
+
+
+    <!-- Útero -->
+    <h2>Útero</h2>
+    
+    <label for="medidas_utero">Medidas Útero:</label>
+    <input name="medidas_utero" id="medidas_utero" type="text" size="25">
+    <br>
+    <label for="utero_avf">Útero posição:</label>
+    <select name="utero_avf" id="utero_avf">
+        <option value="">AVF</option>
+        <option value="">RVF</option>
+    </select>
+    <br>
+    <input type="checkbox" id="utero_normal" value="">Normal 
+    <br> 
+    <input type="checkbox" id="utero_ausente" value="">Ausente (cirurgia prévia)
+    <br>
+    <input type="checkbox" id="miomas" value="">Miomas:   
+    <label for="qtos_miomas">Quantos:</label>
+    <input name="qtos_miomas" id="qtos_miomas" type="number" step="1" size="2">
+    <input type="button" value="Adicionar" onclick="criar_miomas()">
+    <br>
+    <div id="miomas_desc">
+
+    </div>
+    <br>
+    <input type="checkbox" id="adenomiose" value="">Adenomiose
+    <br>
+    <br>
+    <label for="desc_add_utero">Descrições adicionais:</label>
+    <input name="desc_add_utero" id="desc_add_utero" type="text" size="100">
+    <hr>
+
+    <!-- Endometrio -->
+
+    <h2>Endométrio</h2>
+
+    <label for="espessura_endometrio">Espessura endométrio (cm):</label>
+    <input name="espessura_endometrio" id="espessura_endometrio" type="text" size="5">
+    <br>
+    <input type="checkbox" id="endometrio_normal" value="">Normal 
+    <br>
+    <input type="checkbox" id="polipo_endometrio" value="">Pólipo Endometrial.    
+    <label for="dimensoes_polipo_endometrio">Dimensões do pólipo:</label>
+    <input name="dimensoes_polipo_endometrio" id="dimensoes_polipo_endometrio" type="number" step="0.1" size="5">
+    <br>
+    <br>
+    <label for="desc_add_endometrio">Descrições adicionais:</label>
+    <input name="desc_add_endometrio" id="desc_add_endometrio" type="text" size="100">
+    <hr>
+    <!-- Ovário direito -->
+
+    <h2>Ovário direito</h2>
+
+    <label for="medidas_ovd">Medidas Ovário Direito:</label>
+    <input name="medidas_ovd" id="medidas_ovd" type="text" size="25">
+    <br>
+    <input type="checkbox" id="ovd_normal" value="">Normal 
+    <br> 
+    <input type="checkbox" id="ovd_ausente" value="">Ausente (cirurgia prévia) 
+    <br> 
+    <input type="checkbox" id="ovd_nv_ig" value="">Não visualizado (interposição gasosa) 
+    <br> 
+    <input type="checkbox" id="ovd_cistoFolicular" value="">Cisto folicular.
+    <label for="dimensoes_ovd_cistoFolicular">Dimensões do cisto:</label>
+    <input name="dimensoes_ovd_cistoFolicular" id="dimensoes_ovd_cistoFolicular" type="text"  size="10">
+    <br> 
+    <input type="checkbox" id="ovd_cistoHemorragico" value="">Cisto hemorrágico.
+    <label for="dimensoes_ovd_cistoHemorragico">Dimensões do cisto:</label>
+    <input name="dimensoes_ovd_cistoHemorragico" id="dimensoes_ovd_cistoHemorragico" type="text"  size="10">
+    <br> 
+    <input type="checkbox" id="ovd_Policisto" value="">Policístico
+    <br> 
+    <input type="checkbox" id="ovd_Teratoma" value="">Teratoma
+    <label for="dimensoes_ovd_Teratoma">Dimensões:</label>
+    <input name="dimensoes_ovd_Teratoma" id="dimensoes_ovd_Teratoma" type="text"  size="10">
+    <br>
+    <br>
+    <label for="desc_add_ovd">Descrições adicionais:</label>
+    <input name="desc_add_ovd" id="desc_add_ovd" type="text" size="100">
+    <hr>
+    <!-- Ovário Esquerdo -->
+
+    <h2>Ovário Esquerdo</h2>
+
+    <label for="medidas_ove">Medidas Ovário Esquerdo:</label>
+    <input name="medidas_ove" id="medidas_ove" type="text" size="25">
+    <br>
+    <input type="checkbox" id="ove_normal" value="">Normal 
+    <br> 
+    <input type="checkbox" id="ove_ausente" value="">Ausente (cirurgia prévia) 
+    <br> 
+    <input type="checkbox" id="ove_nv_ig" value="">Não visualizado (interposição gasosa) 
+    <br> 
+    <input type="checkbox" id="ove_cistoFolicular" value="">Cisto folicular.
+    <label for="dimensoes_ove_cistoFolicular">Dimensões do cisto:</label>
+    <input name="dimensoes_ove_cistoFolicular" id="dimensoes_ove_cistoFolicular" type="text"  size="10">
+    <br> 
+    <input type="checkbox" id="ove_cistoHemorragico" value="">Cisto hemorrágico.
+    <label for="dimensoes_ove_cistoHemorragico">Dimensões do cisto:</label>
+    <input name="dimensoes_ove_cistoHemorragico" id="dimensoes_ove_cistoHemorragico" type="text"  size="10">
+    <br> 
+    <input type="checkbox" id="ove_Policisto" value="">Policístico
+    <br> 
+    <input type="checkbox" id="ove_Teratoma" value="">Teratoma
+    <label for="dimensoes_ove_Teratoma">Dimensões:</label>
+    <input name="dimensoes_ove_Teratoma" id="dimensoes_ove_Teratoma" type="text"  size="10">
+    <br>
+    <br>
+    <label for="desc_add_ove">Descrições adicionais:</label>
+    <input name="desc_add_ove" id="desc_add_ove" type="text" size="100">
+    <br>
+    <br>
+    <br>
+    <hr>
+    <input type="button" value="Gerar Laudo" onclick="gerar_laudo_transvaginal()">
+    <hr>
+
+
+
+    <h2>Laudo</h2>
+    <textarea name="laudo" id="laudo" cols="150" rows="30" onkeyup="volume()" ></textarea>
+    <br>
+    <br>
+    <input type="button" value="Copiar" onclick="copiar_laudo()">
+    <input type="button" value="Apagar laudo" onclick="apagar_laudo()">
+
+
+    <!-- onkeydown="volume()" -->
+    
+
+    <script type="text/javascript" src="transvaginal.js"></script>
+</body>
+</html>

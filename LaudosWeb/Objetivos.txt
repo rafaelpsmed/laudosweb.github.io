@@ -1,0 +1,10 @@
+fácil de criar laudos
+
+campo de texto deve ter:
+formatação
+cálculo volume
+colocar/retirar singular
+nomear vértebras
+substituir palavras/frases chaves por textos completos e adicionar variáveis
+correção ortográfica
+reconhecimento de voz
